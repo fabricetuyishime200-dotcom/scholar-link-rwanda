@@ -1,0 +1,1482 @@
+
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Scholar Link Rwanda: amahirwe y'uburezi, akazi, amahugurwa na serivisi za Irembo.">
+<title>Scholar Link Rwanda | Fabrice Tuyishime</title>
+
+<style>
+:root {
+  --green: #075b45;
+  --dark: #033e30;
+  --yellow: #f4b942;
+  --bg: #f4f8f5;
+  --text: #20312b;
+  --muted: #687870;
+  --border: #dce7e0;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+
+button, input, select, textarea { font: inherit; }
+
+.container {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+.top {
+  background: var(--dark);
+  color: white;
+  padding: 8px 0;
+  font-size: 12px;
+}
+
+.top .container, .nav, .foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: white;
+  box-shadow: 0 2px 12px #0001;
+}
+
+.nav { min-height: 72px; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  background: var(--green);
+  color: white;
+  border: 3px solid var(--yellow);
+  border-radius: 12px;
+  padding: 9px;
+  font-weight: bold;
+}
+
+.brand b {
+  display: block;
+  color: var(--green);
+  font-size: 15px;
+}
+
+.brand small {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.menu {
+  display: none;
+  background: var(--green);
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px;
+}
+
+.hero {
+  background: linear-gradient(120deg, var(--dark), #08765a);
+  color: white;
+  padding: 65px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.pill {
+  display: inline-block;
+  border: 1px solid #ffffff44;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.1;
+}
+
+.hero h1 span { color: var(--yellow); }
+
+.hero p { color: #e0eee8; }
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gold { background: var(--yellow); color: #243126; }
+.white { background: white; color: var(--green); }
+.primary { background: var(--green); color: white; }
+.outline { border: 1px solid var(--border); background: white; color: var(--green); }
+.danger { background: #b42318; color: white; }
+
+.hero-card {
+  border: 1px solid #ffffff30;
+  background: #ffffff12;
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.quick {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ffffff2b;
+  align-items: flex-start;
+}
+.quick:hover strong { color: var(--yellow); }
+.quick small { display: block; line-height: 1.4; }
+
+.quick:last-child { border: 0; }
+.quick strong { display: block; }
+.quick small { color: #d7e8df; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: -20px;
+}
+
+.stat {
+  background: white;
+  border-radius: 12px;
+  padding: 17px;
+  text-align: center;
+  box-shadow: 0 8px 25px #063e3010;
+}
+
+.stat b {
+  display: block;
+  color: var(--green);
+  font-size: 22px;
+}
+
+section { padding: 62px 0; }
+
+.heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 28px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  color: #a56c00;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.heading h2 {
+  color: var(--dark);
+  font-size: clamp(26px, 4vw, 35px);
+  margin: 7px 0;
+}
+
+.heading p, .muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.tab {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 22px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: var(--green);
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cover {
+  padding: 16px;
+  background: linear-gradient(135deg, #e0f2e9, #f7f0dc);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.symbol { font-size: 32px; }
+
+.tag, .meta {
+  background: #f0f5f1;
+  color: var(--green);
+  border-radius: 20px;
+  padding: 5px 8px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.cardbody {
+  padding: 17px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card h3 {
+  font-size: 17px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: pre-line;
+}
+
+.card-actions {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.card-actions .btn { width: 100%; }
+
+.empty {
+  grid-column: 1 / -1;
+  background: white;
+  padding: 30px;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
+.irembo { background: #eaf3ee; }
+
+.servicegrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.service-choice {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 20px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.service-choice:hover {
+  border-color: var(--green);
+  box-shadow: 0 8px 25px #063e3010;
+}
+
+.service-choice h3 { color: var(--dark); }
+
+.service-choice p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.results {
+  margin-top: 28px;
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.results[hidden] { display: none; }
+
+.resultshead {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.serviceitem {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.serviceitem h3 { font-size: 16px; }
+
+.price {
+  color: var(--green);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.serviceitem p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.notice {
+  background: #fff8e8;
+  border: 1px solid #f0dfae;
+  border-radius: 9px;
+  padding: 13px;
+  color: #69521c;
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+.aboutgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.aboutbox {
+  background: var(--green);
+  color: white;
+  padding: 27px;
+  border-radius: 15px;
+}
+
+.aboutbox p { color: #e0eee8; }
+
+.points { display: grid; gap: 15px; }
+
+.point {
+  display: flex;
+  gap: 12px;
+}
+
+.point p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.contact { background: #eff5f1; }
+
+.contactgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+.contactcard {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.contactcard p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer {
+  background: #062e24;
+  color: white;
+  padding: 26px 0;
+}
+
+footer p {
+  font-size: 12px;
+  color: #c5d9d0;
+  margin: 4px 0;
+}
+
+.adminlink {
+  background: transparent;
+  color: #d5e5dd;
+  border: 1px solid #55776b;
+  border-radius: 7px;
+  padding: 8px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.admin {
+  display: none;
+  background: white;
+  border-top: 4px solid var(--yellow);
+}
+
+.admin.show { display: block; }
+
+.adminlayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.adminpanel {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 18px;
+  border-radius: 12px;
+}
+
+.form { display: grid; gap: 10px; }
+
+.form label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.form textarea { min-height: 95px; }
+
+.adminlist { display: grid; gap: 9px; }
+
+.adminitem {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.adminitem h4 {
+  font-size: 13px;
+  margin: 0;
+}
+
+.adminitem small { color: var(--muted); }
+
+.adminitem .btn {
+  font-size: 10px;
+  padding: 7px;
+}
+
+.status {
+  font-size: 12px;
+  color: var(--green);
+  font-weight: bold;
+  min-height: 16px;
+}
+
+.hidden { display: none !important; }
+
+@media (max-width: 850px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .servicegrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .adminlayout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .menu { display: block; }
+  .nav { padding: 10px 0; }
+  nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+  }
+  nav.open { display: flex; }
+  nav a {
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+  }
+  .brand b { font-size: 12px; }
+  .hero { padding: 45px 0; }
+  .stats { gap: 6px; }
+  .stat { padding: 12px 5px; }
+  .stat b { font-size: 18px; }
+  .stat span { font-size: 10px; }
+  .filters, .grid, .servicegrid, .service-list,
+  .contactgrid, .aboutgrid { grid-template-columns: 1fr; }
+  .resultshead { flex-direction: column; }
+  .adminitem { align-items: flex-start; flex-direction: column; }
+}
+
+/* ===== SCHOLAR LINK RWANDA: DESIGN AMABARA MASHYA ===== */
+:root {
+  --green: #087f5b;
+  --dark: #102a43;
+  --yellow: #ffc857;
+  --bg: #f3f7fc;
+  --text: #172b4d;
+  --muted: #62748a;
+  --border: #d9e3f0;
+  --blue: #2563eb;
+  --purple: #7048e8;
+}
+
+body {
+  background: linear-gradient(180deg, #f3f7fc 0%, #ffffff 48%, #f0f7f4 100%);
+  color: var(--text);
+}
+
+header {
+  background: rgba(255, 255, 255, .97);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 5px 24px rgba(16, 42, 67, .12);
+}
+
+.top { background: linear-gradient(90deg, #102a43, #087f5b); }
+.logo { background: linear-gradient(135deg, #087f5b, #2563eb); border-color: var(--yellow); }
+.brand b { color: var(--green); }
+.menu { background: var(--green); }
+
+.hero {
+  background: linear-gradient(125deg, #102a43 0%, #087f5b 55%, #2563eb 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  background: rgba(255, 200, 87, .13);
+  right: -95px;
+  top: -120px;
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 35px solid rgba(255, 255, 255, .06);
+  left: -100px;
+  bottom: -120px;
+  pointer-events: none;
+}
+.hero-grid { position: relative; z-index: 1; }
+.hero h1 span { color: var(--yellow); }
+.hero-card { box-shadow: 0 12px 32px rgba(0, 0, 0, .08); }
+.hero-card h3 { margin-top: 0; color: #fff; }
+.hero-card .quick { font-size: 14px; }
+.hero-card .quick small { font-size: 11px; }
+
+.btn {
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 42, 67, .18);
+  filter: brightness(1.04);
+}
+.gold { background: linear-gradient(135deg, #ffe08a, #ffc247); color: #263445; }
+.white { background: #fff; color: var(--green); }
+.primary, .tab.active { background: linear-gradient(135deg, #087f5b, #2563eb); color: #fff; }
+.outline { border-color: var(--border); background: #fff; color: var(--green); }
+
+.stat, .card, .service-choice, .contactcard, .results {
+  box-shadow: 0 8px 26px rgba(16, 42, 67, .07);
+}
+.stat { border: 1px solid var(--border); }
+.stat b, .price { color: var(--green); }
+.heading h2, .service-choice h3 { color: var(--dark); }
+.cover { background: linear-gradient(135deg, #d8f3e8 0%, #fff0c2 50%, #dce8ff 100%); }
+.tag, .meta { background: #e3f5ed; color: var(--green); }
+
+.card, .service-choice, .contactcard {
+  border-radius: 15px;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.card:hover, .service-choice:hover, .contactcard:hover {
+  transform: translateY(-4px);
+  border-color: #8acbb2;
+  box-shadow: 0 16px 34px rgba(16, 42, 67, .13);
+}
+.irembo { background: linear-gradient(135deg, #e8f7f0, #eaf1ff); }
+.contact { background: linear-gradient(135deg, #eaf5f0, #eef3ff); }
+.aboutbox { background: linear-gradient(135deg, #102a43, #087f5b 68%, #2563eb); }
+footer { background: linear-gradient(120deg, #0b1f33, #102a43 55%, #075b45); }
+.admin { border-top-color: var(--yellow); }
+
+.field { transition: border-color .2s ease, box-shadow .2s ease; }
+.field:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(8, 127, 91, .13);
+}
+.notice { background: #fff7e3; border-color: #f1d58b; }
+:focus-visible { outline: 3px solid rgba(255, 200, 87, .95); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="top">
+  <div class="container">
+    <span>🎓 Amahirwe y'Uburezi n'Akazi</span>
+    <span>🇷🇼 Rwanda</span>
+  </div>
+</div>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <span class="logo">SLR</span>
+      <span>
+        <b>SCHOLAR LINK RWANDA</b>
+        <small>Amahirwe y'Uburezi n'Akazi</small>
+      </span>
+    </a>
+
+    <button class="menu" id="menu">☰ Menu</button>
+
+    <nav id="nav">
+      <a href="#home">Ahabanza</a>
+      <a href="#opportunities">Amahirwe</a>
+      <a href="#irembo">Serivisi za Irembo</a>
+      <a href="#about">Abo turibo</a>
+      <a href="#contact">Tuvugishe</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="pill">IKAZE KURI SCHOLAR LINK RWANDA</span>
+      <h1>Menya amahirwe yawe.<br><span>Utere imbere.</span></h1>
+      <p>
+        Menya buruse, akazi, amahugurwa na serivisi za Leta.
+        Reba ibisabwa, deadline n'aho usaba.
+      </p>
+      <div class="actions">
+        <a class="btn gold" href="#opportunities">🔎 Reba amahirwe</a>
+        <a class="btn white" href="#contact">Tuvugishe</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Shaka amahirwe yawe</h3>
+      <a class="quick" href="#opportunities" data-catlink="Scholarship">
+        🎓 <span><strong>Scholarships</strong><small>Amakuru ya buruse</small></span>
+      </a>
+      <a class="quick" href="#opportunities" data-catlink="Akazi">
+        💼 <span><strong>Akazi</strong><small>Imyanya y'akazi</small></span>
+      </a>
+      <a class="quick" href="#opportunities" data-catlink="Amahugurwa">
+        📚 <span><strong>Amahugurwa</strong><small>Ubumenyi bushya</small></span>
+      </a>
+      <a class="quick" href="#irembo">
+        🏛️ <span><strong>Serivisi za Irembo</strong><small>Serivisi za Leta</small></span>
+      </a>
+      <a class="quick" href="https://www.mifotra.gov.rw/" target="_blank" rel="noopener noreferrer">
+        🏢 <span><strong>MIFOTRA</strong><small>Amakuru y'akazi n'abakozi ba Leta ↗</small></span>
+      </a>
+      <a class="quick" href="https://police.gov.rw/" target="_blank" rel="noopener noreferrer">
+        👮 <span><strong>RNP</strong><small>Rwanda National Police ↗</small></span>
+      </a>
+      <a class="quick" href="https://www.mod.gov.rw/" target="_blank" rel="noopener noreferrer">
+        🪖 <span><strong>RDF</strong><small>Amakuru ajyanye n'Ingabo z'u Rwanda ↗</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="container stats">
+  <div class="stat"><b>🎓</b><span>Amakuru y'Uburezi</span></div>
+  <div class="stat"><b>💼</b><span>Akazi n'Amahugurwa</span></div>
+  <div class="stat"><b>🇷🇼</b><span>Serivisi mu Rwanda</span></div>
+</div>
+
+<section id="opportunities">
+  <div class="container">
+    <div class="heading">
+      <span class="eyebrow">AMAHIRWE YAWE</span>
+      <h2>Amakuru y'Uburezi n'Akazi</h2>
+      <p>Shakisha amatangazo, usome ibisabwa kandi ukurikire link yemewe.</p>
+    </div>
+
+    <div class="filters">
+      <input id="search" class="field" placeholder="🔎 Shaka buruse, akazi..." type="search">
+      <select id="filter" class="field">
+        <option value="Byose">Ibyiciro byose</option>
+        <option>Scholarship</option>
+        <option>Akazi</option>
+        <option>Amahugurwa</option>
+        <option>Irembo</option>
+        <option>Andi</option>
+      </select>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-cat="Byose">Byose</button>
+      <button class="tab" data-cat="Scholarship">🎓 Buruse</button>
+      <button class="tab" data-cat="Akazi">💼 Akazi</button>
+      <button class="tab" data-cat="Amahugurwa">📚 Amahugurwa</button>
+      <button class="tab" data-cat="Irembo">🏛️ Irembo</button>
+      <button class="tab" data-cat="Andi">📢 Andi</button>
+    </div>
+
+    <div class="grid" id="posts"></div>
+  </div>
+</section>
+
+<section class="irembo" id="irembo">
+  <div class="container">
+    <div class="heading">
+      <span class="eyebrow">GOVERNMENT SERVICES</span>
+      <h2>Gateway Services</h2>
+      <p>
+        Kanda icyiciro kugira ngo ubone serivisi n'amakuru y'ibiciro.
+        Emeza igiciro kuri IremboGov mbere yo kwishyura.
+      </p>
+    </div>
+
+    <div class="servicegrid">
+      <button class="service-choice" data-service="identity">
+        <div class="symbol">🪪</div>
+        <h3>Identity card</h3>
+        <p>Indangamuntu n'izindi serivisi zijyanye na yo.</p>
+        <span class="btn primary">Reba serivisi →</span>
+      </button>
+
+      <button class="service-choice" data-service="documents">
+        <div class="symbol">📄</div>
+        <h3>Decisions and documents</h3>
+        <p>Ibyemezo n'inyandiko za Leta.</p>
+        <span class="btn primary">Reba serivisi →</span>
+      </button>
+
+      <button class="service-choice" data-service="public">
+        <div class="symbol">🏢</div>
+        <h3>Public service</h3>
+        <p>Izindi serivisi za Leta ziboneka kuri IremboGov.</p>
+        <span class="btn primary">Reba serivisi →</span>
+      </button>
+    </div>
+
+    <div class="results" id="results" hidden>
+      <div class="resultshead">
+        <div>
+          <span class="eyebrow">URUTONDE RWA SERIVISI</span>
+          <h2 id="resultTitle">Serivisi</h2>
+          <p id="resultDesc" class="muted"></p>
+        </div>
+        <button class="btn outline" id="closeResults">Funga ✕</button>
+      </div>
+
+      <div class="service-list" id="serviceList"></div>
+
+      <div class="notice">
+        <b>Icyitonderwa:</b>
+        Ibiciro bishobora guhinduka kandi biterwa na serivisi.
+        Aho igiciro kitagenzuwe, handitse “Emeza igiciro”.
+        Banza urebe amakuru agezweho kuri IremboGov.
+      </div>
+
+      <a class="btn primary" style="margin-top:14px"
+         href="https://www.irembo.gov.rw/"
+         target="_blank" rel="noopener">
+        Jya kuri IremboGov ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container aboutgrid">
+    <div class="aboutbox">
+      <h2>Abo turibo</h2>
+      <p>
+        Scholar Link Rwanda ni urubuga rugamije gufasha Abanyarwanda
+        kumenya amahirwe y'uburezi, akazi, amahugurwa na serivisi zitandukanye.
+      </p>
+      <p><b>Nyiri website:</b> Fabrice Tuyishime</p>
+      <p><b>Intego:</b> Amahirwe y'Uburezi n'Akazi</p>
+    </div>
+
+    <div class="points">
+      <div class="point">✅ <div><b>Amakuru y'amahirwe</b><p>Menya buruse, akazi n'amahugurwa.</p></div></div>
+      <div class="point">✅ <div><b>Ibisabwa na deadline</b><p>Soma ibisabwa n'igihe ntarengwa cyo gusaba.</p></div></div>
+      <div class="point">✅ <div><b>Ubufasha</b><p>Twandikire niba ukeneye ubusobanuro.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="heading">
+      <span class="eyebrow">TUVUGISHE</span>
+      <h2>Twiteguye kugufasha</h2>
+    </div>
+
+    <div class="contactgrid">
+      <div class="contactcard">
+        <div class="symbol">📱</div>
+        <h3>WhatsApp</h3>
+        <p>0789 264 529</p>
+        <a class="btn primary" href="https://wa.me/250789264529" target="_blank" rel="noopener">Twandikire</a>
+      </div>
+
+      <div class="contactcard">
+        <div class="symbol">☎️</div>
+        <h3>Telefoni</h3>
+        <p>0793 475 385</p>
+        <a class="btn primary" href="tel:+250793475385">Duhamagare</a>
+      </div>
+
+      <div class="contactcard">
+        <div class="symbol">▶️</div>
+        <h3>YouTube</h3>
+        <p>Scholar Link Rwanda</p>
+        <a class="btn primary"
+           href="https://www.youtube.com/results?search_query=ScholarLinkInRwanda"
+           target="_blank" rel="noopener">Shaka channel</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="admin" id="admin">
+  <div class="container">
+    <div class="heading">
+      <span class="eyebrow">ADMIN DASHBOARD</span>
+      <h2>Genzura amatangazo</h2>
+      <p>Ongeramo, uhindure cyangwa usibe amatangazo.</p>
+    </div>
+
+    <div class="adminpanel" id="loginPanel">
+      <h3>Admin Login</h3>
+      <p class="muted">Demo: username admin · password SLR-demo-2026</p>
+
+      <form class="form" id="loginForm">
+        <label>Username<input class="field" id="username" required></label>
+        <label>Password<input class="field" id="password" type="password" required></label>
+        <button class="btn primary">Injira</button>
+        <p class="status" id="loginMsg"></p>
+      </form>
+    </div>
+
+    <div id="dashboard" class="hidden">
+      <div class="adminpanel" style="margin-bottom:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <b>Admin dashboard · Fabrice Tuyishime</b>
+        <button class="btn danger" id="logout">Sohoka</button>
+      </div>
+
+      <div class="adminlayout">
+        <div class="adminpanel">
+          <h3 id="formTitle">Ongeramo itangazo</h3>
+
+          <form class="form" id="postForm">
+            <input type="hidden" id="editId">
+
+            <label>
+              Umutwe w'itangazo *
+              <input class="field" id="title" required maxlength="150">
+            </label>
+
+            <label>
+              Icyiciro
+              <select class="field" id="category">
+                <option>Scholarship</option>
+                <option>Akazi</option>
+                <option>Amahugurwa</option>
+                <option>Irembo</option>
+                <option>Andi</option>
+              </select>
+            </label>
+
+            <label>
+              Ibisobanuro *
+              <textarea class="field" id="description" required maxlength="5000"></textarea>
+            </label>
+
+            <label>
+              Deadline
+              <input class="field" id="deadline" placeholder="Urugero: 30/11/2026">
+            </label>
+
+            <label>
+              Link y'itangazo
+              <input class="field" id="url" type="url" placeholder="https://...">
+              <small class="muted">Nta link? Siga ubusa.</small>
+            </label>
+
+            <button class="btn primary" id="saveBtn">Bika itangazo</button>
+            <button class="btn outline hidden" type="button" id="cancelEdit">Hagarika guhindura</button>
+            <p class="status" id="postMsg"></p>
+          </form>
+        </div>
+
+        <div class="adminpanel">
+          <h3>Amatangazo ariho</h3>
+          <div class="adminlist" id="adminList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>
+      <b>SCHOLAR LINK RWANDA</b>
+      <p>Amahirwe y'Uburezi n'Akazi</p>
+      <p>Nyiri website: Fabrice Tuyishime</p>
+      <p>© <span id="year"></span> Scholar Link Rwanda</p>
+    </div>
+    <button class="adminlink" id="openAdmin">Admin Login</button>
+  </div>
+</footer>
+
+<script>
+"use strict";
+
+const ADMIN_USER = "admin";
+const ADMIN_PASS = "SLR-demo-2026";
+const KEY = "slr_posts_v3";
+
+const starter = [
+  {
+    id: "demo1",
+    title: "Menya amakuru ya Scholarships",
+    category: "Scholarship",
+    description: "Shaka buruse? Reba urubuga rw'ishuri cyangwa urwego rutanga buruse. Genza ibisabwa, deadline n'inyandiko zikenewe.",
+    deadline: "Reba ku rubuga rw'utanga buruse",
+    url: ""
+  },
+  {
+    id: "demo2",
+    title: "Amatangazo y'akazi",
+    category: "Akazi",
+    description: "Tegura CV n'inyandiko zisabwa. Banza urebe itangazo ku rubuga rw'ikigo gitanga akazi.",
+    deadline: "Reba itangazo ry'akazi",
+    url: ""
+  },
+  {
+    id: "demo3",
+    title: "Amahugurwa n'ubumenyi bushya",
+    category: "Amahugurwa",
+    description: "Kurikirana amahugurwa ajyanye n'ubumenyi ushaka. Soma ibisabwa n'aho wiyandikisha.",
+    deadline: "Reba amakuru y'umuteguro",
+    url: ""
+  }
+];
+
+const names = {
+  Scholarship: "Scholarship / Buruse",
+  Akazi: "Akazi",
+  Amahugurwa: "Amahugurwa",
+  Irembo: "Serivisi za Irembo",
+  Andi: "Andi makuru"
+};
+
+const icons = {
+  Scholarship: "🎓",
+  Akazi: "💼",
+  Amahugurwa: "📚",
+  Irembo: "🏛️",
+  Andi: "📢"
+};
+
+const $ = selector => document.querySelector(selector);
+
+let posts = load();
+let active = "Byose";
+let logged = false;
+
+function load() {
+  try {
+    const saved = localStorage.getItem(KEY);
+    if (saved !== null && Array.isArray(JSON.parse(saved))) {
+      return JSON.parse(saved);
+    }
+  } catch (error) {
+    console.warn("Could not load saved posts.");
+  }
+
+  return starter.map(post => ({ ...post }));
+}
+
+function save() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(posts));
+    return true;
+  } catch (error) {
+    alert("Ntibyashobotse kubika muri browser.");
+    return false;
+  }
+}
+
+function esc(value) {
+  return String(value ?? "").replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[character]);
+}
+
+function safeURL(value) {
+  if (!String(value || "").trim()) return "";
+
+  try {
+    const url = new URL(value);
+    return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+  } catch (error) {
+    return "";
+  }
+}
+
+function render() {
+  const query = $("#search").value.trim().toLowerCase();
+  const filter = $("#filter").value;
+
+  const list = posts.filter(post => {
+    const matchesSearch =
+      String(post.title).toLowerCase().includes(query) ||
+      String(post.description).toLowerCase().includes(query);
+
+    const matchesFilter = filter === "Byose" || post.category === filter;
+    const matchesTab = active === "Byose" || post.category === active;
+
+    return matchesSearch && matchesFilter && matchesTab;
+  });
+
+  $("#posts").innerHTML = list.length
+    ? list.map(post => {
+        const url = safeURL(post.url);
+
+        return `
+          <article class="card">
+            <div class="cover">
+              <span class="symbol">${icons[post.category] || "📢"}</span>
+              <span class="tag">${esc(names[post.category] || post.category)}</span>
+            </div>
+
+            <div class="cardbody">
+              <h3>${esc(post.title)}</h3>
+              <p>${esc(post.description)}</p>
+
+              <div>
+                <span class="meta">
+                  📅 ${esc(post.deadline || "Nta deadline yatanzwe")}
+                </span>
+              </div>
+
+              <div class="card-actions">
+                ${
+                  url
+                    ? `<a class="btn primary" href="${esc(url)}" target="_blank" rel="noopener">Soma / Saba ↗</a>`
+                    : `<span class="meta">Link y'itangazo ntirashyirwamo</span>`
+                }
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("")
+    : `<div class="empty">Nta tangazo ribonetse. Gerageza andi magambo.</div>`;
+
+  if (logged) renderAdmin();
+}
+
+function renderAdmin() {
+  $("#adminList").innerHTML = posts.length
+    ? posts.map(post => `
+        <div class="adminitem">
+          <div>
+            <h4>${esc(post.title)}</h4>
+            <small>${esc(names[post.category] || post.category)}</small>
+          </div>
+
+          <div>
+            <button class="btn outline" data-edit="${esc(post.id)}">Hindura</button>
+            <button class="btn danger" data-del="${esc(post.id)}">Siba</button>
+          </div>
+        </div>
+      `).join("")
+    : `<p class="muted">Nta matangazo ahari.</p>`;
+}
+
+function resetForm() {
+  $("#postForm").reset();
+  $("#editId").value = "";
+  $("#formTitle").textContent = "Ongeramo itangazo";
+  $("#saveBtn").textContent = "Bika itangazo";
+  $("#cancelEdit").classList.add("hidden");
+  $("#postMsg").textContent = "";
+}
+
+$("#search").addEventListener("input", render);
+$("#filter").addEventListener("change", render);
+
+$("#tabs").addEventListener("click", event => {
+  const button = event.target.closest("[data-cat]");
+  if (!button) return;
+
+  active = button.dataset.cat;
+
+  document.querySelectorAll(".tab").forEach(tab => {
+    tab.classList.toggle("active", tab === button);
+  });
+
+  render();
+});
+
+document.querySelectorAll("[data-catlink]").forEach(link => {
+  link.addEventListener("click", () => {
+    active = link.dataset.catlink;
+    $("#filter").value = active;
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.classList.toggle("active", tab.dataset.cat === active);
+    });
+
+    render();
+  });
+});
+
+$("#menu").addEventListener("click", () => {
+  $("#nav").classList.toggle("open");
+});
+
+$("#nav").addEventListener("click", event => {
+  if (event.target.closest("a")) {
+    $("#nav").classList.remove("open");
+  }
+});
+
+$("#openAdmin").addEventListener("click", () => {
+  $("#admin").classList.add("show");
+  $("#admin").scrollIntoView({ behavior: "smooth" });
+});
+
+$("#loginForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (
+    $("#username").value.trim() === ADMIN_USER &&
+    $("#password").value === ADMIN_PASS
+  ) {
+    logged = true;
+    $("#loginPanel").classList.add("hidden");
+    $("#dashboard").classList.remove("hidden");
+    renderAdmin();
+  } else {
+    $("#loginMsg").textContent = "Username cyangwa password si byo.";
+  }
+});
+
+$("#logout").addEventListener("click", () => {
+  logged = false;
+  $("#dashboard").classList.add("hidden");
+  $("#loginPanel").classList.remove("hidden");
+  $("#loginForm").reset();
+  resetForm();
+});
+
+$("#cancelEdit").addEventListener("click", resetForm);
+
+$("#postForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!logged) return;
+
+  const title = $("#title").value.trim();
+  const description = $("#description").value.trim();
+  const rawURL = $("#url").value.trim();
+  const url = rawURL ? safeURL(rawURL) : "";
+
+  if (!title || !description) {
+    $("#postMsg").textContent = "Uzuza umutwe n'ibisobanuro.";
+    return;
+  }
+
+  if (rawURL && !url) {
+    $("#postMsg").textContent =
+      "Link igomba gutangirana na http:// cyangwa https://.";
+    return;
+  }
+
+  const id = $("#editId").value;
+
+  const post = {
+    id: id || "p" + Date.now(),
+    title,
+    category: $("#category").value,
+    description,
+    deadline: $("#deadline").value.trim(),
+    url
+  };
+
+  const oldPosts = posts;
+
+  posts = id
+    ? posts.map(item => item.id === id ? post : item)
+    : [post, ...posts];
+
+  if (!save()) {
+    posts = oldPosts;
+    return;
+  }
+
+  resetForm();
+  $("#postMsg").textContent = "Itangazo ryabitswe.";
+  render();
+});
+
+$("#adminList").addEventListener("click", event => {
+  if (!logged) return;
+
+  const editButton = event.target.closest("[data-edit]");
+  const deleteButton = event.target.closest("[data-del]");
+
+  if (editButton) {
+    const post = posts.find(item => item.id === editButton.dataset.edit);
+    if (!post) return;
+
+    $("#editId").value = post.id;
+    $("#title").value = post.title;
+    $("#category").value = post.category;
+    $("#description").value = post.description;
+    $("#deadline").value = post.deadline || "";
+    $("#url").value = post.url || "";
+
+    $("#formTitle").textContent = "Hindura itangazo";
+    $("#saveBtn").textContent = "Bika impinduka";
+    $("#cancelEdit").classList.remove("hidden");
+
+    $("#postForm").scrollIntoView({ behavior: "smooth" });
+  }
+
+  if (deleteButton) {
+    const post = posts.find(item => item.id === deleteButton.dataset.del);
+
+    if (post && confirm("Siba itangazo: " + post.title + "?")) {
+      const oldPosts = posts;
+      posts = posts.filter(item => item.id !== post.id);
+
+      if (!save()) posts = oldPosts;
+
+      render();
+    }
+  }
+});
+
+/*
+  IBICIRO:
+  Igiciro cya serivisi kigomba kugenzurwa kuri IremboGov.
+  Hindura amakuru ari hano gusa umaze kugenzura igiciro nyacyo.
+*/
+const services = {
+  identity: {
+    title: "Indangamuntu",
+    desc: "Emeza igiciro n'ibisabwa bigezweho kuri IremboGov.",
+    items: [
+      [
+        "Gusimbuza indangamuntu yatakaye/yangiritse",
+        "Emeza igiciro",
+        "Banza ukurikize inzira yo kwemezwa na RIB. Emeza igiciro n'amabwiriza agezweho."
+      ],
+      [
+        "Icyemezo gisimbura indangamuntu",
+        "Emeza igiciro",
+        "Igiciro n'ibisabwa bishobora guhinduka. Reba kuri IremboGov."
+      ],
+      [
+        "Gukosora amakuru y'indangamuntu",
+        "Biterwa na serivisi",
+        "Ibisabwa n'amafaranga biterwa n'impamvu yo gukosora."
+      ]
+    ]
+  },
+
+  documents: {
+    title: "Ibyemezo n'inyandiko",
+    desc: "Ibiciro biterwa n'icyemezo n'ubwoko bw'ubusabe.",
+    items: [
+      [
+        "Icyemezo cy'irangamimerere",
+        "Emeza igiciro",
+        "Reba ibisabwa n'amafaranga agezweho kuri IremboGov."
+      ],
+      [
+        "Icyemezo cy'ubwenegihugu",
+        "Emeza igiciro",
+        "Reba ibisabwa n'amafaranga agezweho kuri IremboGov."
+      ],
+      [
+        "Ikindi cyemezo cya Leta",
+        "Biterwa na serivisi",
+        "Shaka izina ry'icyemezo kuri IremboGov."
+      ]
+    ]
+  },
+
+  public: {
+    title: "Serivisi rusange",
+    desc: "Hitamo serivisi kuri portal yemewe kugira ngo ubone igiciro nyacyo.",
+    items: [
+      [
+        "Uruhushya rwo gutwara ibinyabiziga",
+        "Emeza igiciro",
+        "Igiciro giterwa n'ubwoko bw'uruhushya n'intambwe y'ubusabe."
+      ],
+      [
+        "Serivisi z'ubucuruzi",
+        "Biterwa na serivisi",
+        "Reba ibisabwa n'amafaranga kuri IremboGov."
+      ],
+      [
+        "Izindi serivisi za Leta",
+        "Biterwa na serivisi",
+        "Ibisabwa n'amafaranga ntibihura kuri serivisi zose."
+      ]
+    ]
+  }
+};
+
+document.querySelectorAll("[data-service]").forEach(button => {
+  button.addEventListener("click", () => {
+    const group = services[button.dataset.service];
+
+    $("#resultTitle").textContent = group.title;
+    $("#resultDesc").textContent = group.desc;
+
+    $("#serviceList").innerHTML = group.items.map(item => `
+      <article class="serviceitem">
+        <h3>${esc(item[0])}</h3>
+        <div class="price">${esc(item[1])}</div>
+        <p>${esc(item[2])}</p>
+        <a class="btn primary"
+           href="https://www.irembo.gov.rw/"
+           target="_blank" rel="noopener">
+          Reba kuri IremboGov ↗
+        </a>
+      </article>
+    `).join("");
+
+    $("#results").hidden = false;
+    $("#results").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+
+$("#closeResults").addEventListener("click", () => {
+  $("#results").hidden = true;
+});
+
+$("#year").textContent = new Date().getFullYear();
+
+render();
+</script>
+
+</body>
+</html>
